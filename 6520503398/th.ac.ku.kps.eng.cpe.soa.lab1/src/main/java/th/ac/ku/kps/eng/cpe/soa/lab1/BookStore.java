@@ -2,6 +2,8 @@ package th.ac.ku.kps.eng.cpe.soa.lab1;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentFactory;
@@ -10,66 +12,67 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
 public class BookStore {
-private Element title;
-private Element author;
-private Element catagory;
-private Element yaer;
-private Element edition;
-private Element price;
+	private String isbn;
+	private String title;
+	private List<String> author = new ArrayList<>();
+	private List<String> catagory = new ArrayList<>();
+	private String language;
+	private Integer yaer;
+	private Byte edition;
+	private Double price;
 
-
-public Element BookStore;
-public Document doc;
-public Element book;
-
-
-public BookStore() {
-	 this.doc = DocumentFactory.getInstance().createDocument();
-	 this.BookStore = doc.addElement("BookStore");
-}
-
-public void setIsbn(String isbn) {
-	this.book = BookStore.addElement("book");
-	book.addAttribute("ISBN", isbn);
-}
-
-
-public void setTitle(String titl) {
-	this.title = book.addElement("title");
-	this.title.addText(titl);
-}
-
-public void setAuthor(String author) {
-	this.author = book.addElement("author");
-	this.author.addText(author);
-}
-
-public void setCatagory(String catagory) {
-	this.catagory = book.addElement("catagory");
-	this.catagory.addText(catagory);
-}
-
-public void setYaer(int yaer) {
-	this.yaer = book.addElement("year");
-	this.yaer.addText(String.valueOf(yaer));
-}
-
-public void setEdition(Byte edition) {
-	this.edition = book.addElement("edition");
-	this.edition.addText(String.valueOf(edition));
-}
-
-public void setPrice(Double price) throws IOException {
-	this.price = book.addElement("price");
-	this.price.addText(String.valueOf(price));
-	FileOutputStream fos = new FileOutputStream("simple.xml");
-	OutputFormat format = OutputFormat.createPrettyPrint();
-	XMLWriter writer = new XMLWriter(fos, format);
-	writer.write(doc);
-	writer.flush();
-	writer.close();
-	fos.close();
-}
+	public BookStore() {
+		
+	}
+	
+	public String getIsbn() {
+		return isbn;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public List<String> getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author.add(author);
+	}
+	public List<String> getCatagory() {
+		return catagory;
+	}
+	public void setCatagory(String catagory) {
+		this.catagory.add(catagory);
+	}
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	public Integer getYaer() {
+		return yaer;
+	}
+	public void setYaer(Integer yaer) {
+		this.yaer = yaer;
+	}
+	public Byte getEdition() {
+		return edition;
+	}
+	public void setEdition(Byte edition) {
+		this.edition = edition;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 
 
 }

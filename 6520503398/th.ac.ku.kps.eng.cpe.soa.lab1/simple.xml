@@ -9,4 +9,22 @@
     <edition>7</edition>
     <price>19.99</price>
   </book>
+  <book ISBN="0123456002">
+    <title>Java For Dummies</title>
+    <author>Tan Ah Teck</author>
+    <catagory>Programming</catagory>
+    <year>2008</year>
+    <price>25.99</price>
+  </book>
+  <book ISBN="0123456003">
+    <title>The complete Guide to Fishing</title>
+    <author>Bill Jones</author>
+    <author>James Cook</author>
+    <catagory>Fishing</catagory>
+    <catagory>Leisure</catagory>
+    <language>French</language>
+    <year>2000</year>
+    <edition>2</edition>
+    <price>49.99</price>
+  </book>
 </BookStore>
